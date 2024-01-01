@@ -1,0 +1,8 @@
+import pandas as pd
+
+def article_views(views: pd.DataFrame) -> pd.DataFrame:
+    df = views[ views['author_id'] == views['viewer_id']]
+    df3 = df['author_id'].unique()
+    df3 = sorted(df3)
+    df4 = pd.DataFrame( {'id' : df3 })
+    return df4[['id']]
