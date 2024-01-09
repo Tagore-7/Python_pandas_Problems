@@ -1,0 +1,8 @@
+import pandas as pd
+
+def find_classes(courses: pd.DataFrame) -> pd.DataFrame:
+    df = courses.groupby('class')['student'].size().reset_index()
+    df = df[df['student'] >= 5]
+    df.drop('student', inplace = True, axis = 1)
+    print(df)
+    return df
